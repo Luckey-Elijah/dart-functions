@@ -17,7 +17,7 @@ execute dart programs.
     `/Users/some-user/.oh-my-zsh/custom/plugins/dart-functions/dart-functions.plugin.zsh`
 3. In your `.zshrc`
     - set `DART_FUNCTIONS` to the folder/directory that will hold your dart scripts
-    - update your `plugins=( dart-functions )`
+    - update your [`plugins=( dart-functions )`](https://github.com/ohmyzsh/ohmyzsh#enabling-plugins)
 4. Run `exec zsh` to update your environment.
 
 ## Usage
