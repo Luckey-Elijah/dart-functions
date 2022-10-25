@@ -53,4 +53,5 @@ args: [this, is, several args]
 
 ## Caveats
 
-Dart file names should not contain white space. This is not tested.
+- Dart file with whitespace must be called with enclosing `"`. For example:
+  `dfn "hello world"` will execute `$DART_FUNCTIONS/hello\ world.dart`
