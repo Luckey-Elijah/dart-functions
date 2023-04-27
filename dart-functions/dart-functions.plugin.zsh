@@ -18,6 +18,13 @@ _has_dart_fn_set() {
 }
 
 
+function dadd() {
+    # check if dart is installed and has variable set
+    _has_dart_installed; _has_dart_fn_set;
+    # shift
+    dart pub add --directory=$DART_FUNCTIONS $@
+}
+
 function dfn() {
     # check if dart is installed and has variable set
     _has_dart_installed; _has_dart_fn_set;
@@ -30,7 +37,7 @@ function dfn() {
     if [ -f $dart_file ]; then
         # send the remaining args to the dart script
         shift
-        dart run $dart_file $@
+        dart run --enable-asserts $dart_file $@
     else
         echo "${RED}$dart_file${NC} does not exist." >&2
     fi

@@ -1,0 +1,10 @@
+name: dartfn
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dev_dependencies:
+  apealed_analysis: ^0.0.1
+dependencies:
+  mason_logger: ^0.2.5
+  recase: ^4.1.0
