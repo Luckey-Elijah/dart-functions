@@ -1,6 +1,5 @@
-import 'package:mason_logger/mason_logger.dart';
+import '__globals.dart';
 
-final logger = Logger(level: Level.verbose);
 void main(List<String> args) {
   logger
     ..alert('Hi, mom!')

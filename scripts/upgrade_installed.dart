@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
-import 'package:mason_logger/mason_logger.dart';
+import '__globals.dart';
 
 void main(List<String> args) async {
   final results = await 'dart pub global list'.asProcessRun;
@@ -11,16 +12,13 @@ void main(List<String> args) async {
   var upgraded = 0;
   var notChanged = 0;
 
-  final logger = Logger(level: Level.verbose);
-
   final lines = const LineSplitter()
       .convert(output)
       .map((e) => e.trim())
       .where((line) => line.isNotEmpty);
 
-  final width = lines
-      .map((e) => e.split(' ').first)
-      .fold(0, (p, c) => p > c.length ? p : c.length);
+  final width =
+      lines.map((e) => e.split(' ').first).map((e) => e.length).fold(0, max);
 
   for (final line in lines) {
     final cli = line.split(' ');

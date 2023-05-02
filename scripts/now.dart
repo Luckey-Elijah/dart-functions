@@ -1,14 +1,13 @@
-
 import 'package:mason_logger/mason_logger.dart';
 import 'package:recase/recase.dart';
 
-final logger = Logger(level: Level.verbose);
+import '__globals.dart';
 
 void main() {
   final now = DateTime.now();
 
   final weekday = Day.values[now.weekday];
-  final month = Month.values[now.month];
+  final month = Month.values[now.month - 1];
   final day = now.day;
 
   final isPm = now.hour > 11;
@@ -16,9 +15,8 @@ void main() {
 
   final time = '$hour:${now.minute} ${isPm ? 'p' : 'a'}.m.';
 
-
   final message = '$weekday, $month $day - $time';
-  
+
   logger.detail('Today is ${green.wrap(message)}');
 }
 
@@ -40,22 +38,22 @@ enum Day {
 }
 
 enum Month {
-  january('January', 0),
-  february('February', 1),
-  march('March', 2),
-  april('April', 3),
-  may('May', 4),
-  june('June', 5),
-  july('July', 6),
-  august('August', 7),
-  september('September', 8),
-  october('October', 9),
-  november('November', 10),
-  december('December', 11);
+  january('January'),
+  february('February'),
+  march('March'),
+  april('April'),
+  may('May'),
+  june('June'),
+  july('July'),
+  august('August'),
+  september('September'),
+  october('October'),
+  november('November'),
+  december('December');
 
-  const Month(this.label, this.order);
+  const Month(this.label);
+
   final String label;
-  final int order;
 
   @override
   String toString() => label;
