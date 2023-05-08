@@ -20,9 +20,7 @@ Future<void> main() async {
       .where((path) => !path.startsWith('_'))
       .where((path) => path.endsWith('.dart'))
       .map((file) => file.split('.').first)) {
-    count++;
-
-    buffer.writeln('- ${bold(command)}');
+    buffer.writeln('${++count}. ${bold(command)}');
   }
 
   if (count <= 0) {
